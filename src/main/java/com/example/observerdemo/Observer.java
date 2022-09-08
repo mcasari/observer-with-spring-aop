@@ -2,8 +2,8 @@ package com.example.observerdemo;
 
 public interface Observer {
 
-	void executeBefore(Event event);
+	void notifyBefore(Event event);
 	
-	void executeAfter(Event event);
+	void notifyAfter(Event event);
 	
 }

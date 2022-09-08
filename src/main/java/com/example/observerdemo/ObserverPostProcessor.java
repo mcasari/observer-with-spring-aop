@@ -32,9 +32,9 @@ public class ObserverPostProcessor implements BeanPostProcessor {
 	private void processObserverAnnotation(Object object, String beanName) {     
 	    try {
 			Class<?> clazz = object.getClass();
-			if (clazz.isAnnotationPresent(ObserverAnnotation.class)) {
-				Annotation annotation = clazz.getAnnotation(ObserverAnnotation.class);
-				ObserverAnnotation observerAnnotation = (ObserverAnnotation) annotation;
+			if (clazz.isAnnotationPresent(Observe.class)) {
+				Annotation annotation = clazz.getAnnotation(Observe.class);
+				Observe observerAnnotation = (Observe) annotation;
 				
 			}
 		} catch (Throwable e) {

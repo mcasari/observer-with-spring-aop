@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface ObserverAnnotation {
+public @interface Observe {
 	
-	public String phaseInnerContextId() default "";
+	public String appPhaseContextId() default "";
 	
 }
