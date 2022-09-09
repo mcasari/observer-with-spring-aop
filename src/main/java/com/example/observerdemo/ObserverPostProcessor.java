@@ -24,22 +24,24 @@ public class ObserverPostProcessor implements BeanPostProcessor {
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName)
 			throws BeansException {
-		processObserverAnnotation(bean, beanName);
-		return bean;
-	}
-	
-	
-	private void processObserverAnnotation(Object object, String beanName) {     
 	    try {
-			Class<?> clazz = object.getClass();
+			Class<?> clazz = bean.getClass();
 			if (clazz.isAnnotationPresent(Observe.class)) {
 				Annotation annotation = clazz.getAnnotation(Observe.class);
 				Observe observerAnnotation = (Observe) annotation;
-				
+				String appPhaseContextId = observerAnnotation.appPhaseContextId();
+				if (!ObserverMap.getObserverMap().containsKey(appPhaseContextId)) {
+					ObserverMap.getObserverMap().put(appPhaseContextId, (Observer) bean);
+				} else {
+					log.error("Cannot register bean " + bean.getClass().getName() 
+							+ " as observer. Another observer already configured with id: "
+							+ appPhaseContextId);					
+				}
 			}
 		} catch (Throwable e) {
-			log.error("Errore in caricamento observers eventi procedimenti: " + e.getMessage());
-		}        
+			log.error("Unexpected error: " + e.getMessage());
+		} 
+		return bean;
 	}
 	
 } 
