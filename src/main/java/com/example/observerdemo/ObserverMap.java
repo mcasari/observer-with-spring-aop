@@ -1,5 +1,6 @@
 package com.example.observerdemo;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class ObserverMap  {
@@ -8,6 +9,9 @@ public class ObserverMap  {
 	
 
 	public static Map<String, Observer> getObserverMap() {
+		if (observerMap == null) {
+			observerMap = new HashMap<String, Observer>();
+		}
 		return observerMap;
 	}
 	

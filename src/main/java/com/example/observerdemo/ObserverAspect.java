@@ -18,7 +18,7 @@ public class ObserverAspect implements Serializable {
 	private Logger log = LoggerFactory.getLogger(ObserverPostProcessor.class);
 
 	
-	@After("execution(* it.eng.sira.procedimenti.web.IstanzaProcessoController.setPassoEventoEseguito(..)))")
+	@After("execution(* com.example.observerdemo.SystemComponent.enterSomeApplicationPhase(..)))")
 	public void afterPhaseChange(JoinPoint joinPoint) {
 		try {
 			if(joinPoint.getArgs() != null) {
