@@ -28,14 +28,16 @@ public class ObserverPostProcessor implements BeanPostProcessor {
 			Class<?> clazz = bean.getClass();
 			if (clazz.isAnnotationPresent(Observe.class)) {
 				Annotation annotation = clazz.getAnnotation(Observe.class);
-				Observe observerAnnotation = (Observe) annotation;
-				String appPhaseContextId = observerAnnotation.appPhaseContextId();
-				if (!ObserverMap.getObserverMap().containsKey(appPhaseContextId)) {
-					ObserverMap.getObserverMap().put(appPhaseContextId, (Observer) bean);
-				} else {
-					log.error("Cannot register bean " + bean.getClass().getName() 
-							+ " as observer. Another observer already configured with id: "
-							+ appPhaseContextId);					
+				if (annotation instanceof Observe) {
+					Observe observerAnnotation = (Observe) annotation;
+					String appPhaseContextId = observerAnnotation.appPhaseContextId();
+					if (!ObserverMap.getObserverMap().containsKey(appPhaseContextId)) {
+						ObserverMap.getObserverMap().put(appPhaseContextId, (Observer) bean);
+					} else {
+						log.error("Cannot register bean " + bean.getClass().getName() 
+								+ " as observer. Another observer already configured with id: "
+								+ appPhaseContextId);					
+					}					
 				}
 			}
 		} catch (Throwable e) {

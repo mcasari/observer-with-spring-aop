@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class ObserverAspect implements Serializable {
 	private static final long serialVersionUID = 1L;	
-	private Logger log = LoggerFactory.getLogger(ObserverPostProcessor.class);
+	private Logger log = LoggerFactory.getLogger(ObserverAspect.class);
 
 	
 	@After("execution(* com.example.observerdemo.SystemComponent.enterSomeApplicationPhase(..)))")
