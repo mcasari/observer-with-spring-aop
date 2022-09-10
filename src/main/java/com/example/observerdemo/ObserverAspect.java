@@ -22,10 +22,12 @@ public class ObserverAspect implements Serializable {
 	public void afterPhaseChange(JoinPoint joinPoint) {
 		try {
 			if(joinPoint.getArgs() != null) {
-				String phaseId = (String) joinPoint.getArgs()[0];	
-				Observer observer = ObserverMap.getObserverMap().get(phaseId);
-				Event event = new Event();
-				observer.notify(event);
+				SystemInfo applicationInfo = (SystemInfo) joinPoint.getArgs()[0];	
+				Observer observer = ObserverMap.getObserverMap().get(applicationInfo.getSomeId());
+				if (observer != null) {
+					Event event = new Event(applicationInfo);
+					observer.notify(event);					
+				}
 			}	
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
