@@ -15,7 +15,7 @@ public class ObserverExample implements Observer {
 
 	@Override
 	public void notify(Event event) {
-		log.info("Catched event related to applicationInfo id: " + event.getApplicationInfo().getSomeId());
+		log.info("Catched event related to applicationInfo id: " + ((SystemInfo) event.getEventPayload()).getSomeId());
 	}
 
 }

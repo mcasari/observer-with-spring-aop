@@ -1,22 +1,20 @@
 package com.example.observerdemo.core;
 
-import com.example.observerdemo.SystemInfo;
-
 public class Event {
 	
-	private SystemInfo applicationInfo;
+	private Object eventPayload;
 
 	
 	
-	public Event(SystemInfo applicationInfo) {
+	public Event(Object eventPayload) {
 		super();
-		this.applicationInfo = applicationInfo;
+		this.eventPayload = eventPayload;
 	}
 
 
 
-	public SystemInfo getApplicationInfo() {
-		return applicationInfo;
+	public Object getEventPayload() {
+		return eventPayload;
 	}
 	
 }
