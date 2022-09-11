@@ -1,4 +1,4 @@
-package com.example.observerdemo;
+package com.example.observerdemo.core;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

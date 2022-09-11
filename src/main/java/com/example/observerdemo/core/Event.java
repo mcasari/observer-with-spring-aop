@@ -1,5 +1,6 @@
-package com.example.observerdemo;
+package com.example.observerdemo.core;
 
+import com.example.observerdemo.SystemInfo;
 
 public class Event {
 	

@@ -1,4 +1,4 @@
-package com.example.observerdemo;
+package com.example.observerdemo.core;
 
 public interface Observer {
 
