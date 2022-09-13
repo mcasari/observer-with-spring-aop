@@ -1,7 +1,5 @@
 package com.example.observerdemo.core;
 
-import java.io.Serializable;
-
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -15,8 +13,7 @@ import com.example.observerdemo.SystemInfo;
 
 @Component
 @Aspect
-public class ObserverAspect implements Serializable {
-	private static final long serialVersionUID = 1L;	
+public class ObserverAspect {	
 	private Logger log = LoggerFactory.getLogger(ObserverAspect.class);
 
 	

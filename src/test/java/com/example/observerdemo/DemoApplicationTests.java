@@ -15,7 +15,6 @@ class DemoApplicationTests {
 		SystemInfo systemInfo = new SystemInfo();
 		systemInfo.setSomeId("someId");
 		systemComponent.enterSomeApplicationPhase(systemInfo);
-		System.out.println("");
 	}
 
 }
